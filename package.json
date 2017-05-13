@@ -1,0 +1,28 @@
+{
+  "name": "webpack-processor-notifier",
+  "version": "0.1.1",
+  "description": "A plugin to notify of the success or failure of a webpack build. It allows to be passed as processor.",
+  "main": "dist/index.js",
+  "keywords": [
+    "processor",
+    "notification",
+    "notifier"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "node-notifier": "5.1.2",
+    "path": "0.12.7"
+  },
+  "homepage": "https://github.com/jscoobyced/webpack-processor-notifier",
+  "author": {
+    "name": "Cedric Rochefolle",
+    "email": "jscoobyced@gmail.com",
+    "url": "http://rochefolle.net"
+  },
+  "repository": "https://github.com/jscoobyced/webpack-processor-notifier",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ]
+}
