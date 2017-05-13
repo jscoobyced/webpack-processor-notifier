@@ -1,6 +1,7 @@
 # webpack-processor-notifier
 
 A plugin to notify of the success or failure of a webpack build. It allows to be passed as processor.
+When using the ```optimize-css-assets-webpack-plugin``` I couldn't get the ```webpack-build-notifier``` to work on CSS errors. It seems this plugin doesn't call the proper error callback (or one of it's dependencies).
 
 ## Using it directly
 
