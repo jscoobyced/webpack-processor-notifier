@@ -28,19 +28,20 @@ var WebpackProcessorNotifier = function (options) {
   if (this.options.iconPath === undefined) {
     this.options.iconPath = path.resolve(path.dirname(__filename), 'src');
   }
+  var platform = os.platform();
   if (this.options.infoSound === undefined) {
-    if (os.platform == 'darwin') {
+    if (platform == 'darwin') {
       this.options.infoSound = 'Bottle';
-    } else if (os.platform == 'win32') {
+    } else if (platform == 'win32') {
       this.options.infoSound = 'Notification.Looping.Call2';
     } else {
       this.options.infoSound = true;
     }
   }
   if (this.options.errorSound === undefined) {
-    if (os.platform == 'darwin') {
+    if (platform == 'darwin') {
       this.options.errorSound = 'Glass';
-    } else if (os.platform == 'win32') {
+    } else if (platform == 'win32') {
       this.options.errorSound = 'Notification.Looping.Alarm4';
     } else {
       this.options.errorSound = true;
