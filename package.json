@@ -9,9 +9,10 @@
     "notifier"
   ],
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "node-notifier": "5.1.2",
-    "path": "0.12.7"
+    "path": "0.12.7",
+    "os": "0.1.1"
   },
   "homepage": "https://github.com/jscoobyced/webpack-processor-notifier",
   "author": {

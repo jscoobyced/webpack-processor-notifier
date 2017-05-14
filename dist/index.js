@@ -1,5 +1,6 @@
 const Notifier = require('node-notifier');
 const path = require('path');
+const os = require('os');
 
 var WebpackProcessorNotifier = function (options) {
   this.options = options || {};
@@ -27,6 +28,24 @@ var WebpackProcessorNotifier = function (options) {
   if (this.options.iconPath === undefined) {
     this.options.iconPath = path.resolve(path.dirname(__filename), 'src');
   }
+  if (this.options.infoSound === undefined) {
+    if (os.platform == 'darwin') {
+      this.options.infoSound = 'Bottle';
+    } else if (os.platform == 'win32') {
+      this.options.infoSound = 'Notification.Looping.Call2';
+    } else {
+      this.options.infoSound = true;
+    }
+  }
+  if (this.options.errorSound === undefined) {
+    if (os.platform == 'darwin') {
+      this.options.errorSound = 'Glass';
+    } else if (os.platform == 'win32') {
+      this.options.errorSound = 'Notification.Looping.Alarm4';
+    } else {
+      this.options.errorSound = true;
+    }
+  }
 };
 
 WebpackProcessorNotifier.prototype.showNotification = function (success, error) {
@@ -34,18 +53,21 @@ WebpackProcessorNotifier.prototype.showNotification = function (success, error) 
   var message = this.options.buildType + ' build completed successfully.';
   var type = 'info';
   var icon = this.options.infoIcon;
+  var sound = this.options.infoSound;
   if (!success) {
     title = this.options.buildType + ' build failed!';
     message = 'Error: ' + error.message;
     type = 'error';
     icon = this.options.errorIcon;
+    sound = this.options.errorSound;
   }
   var options = {
     title: title,
     message: message,
     time: 2000,
     icon: path.resolve(this.options.iconPath, icon),
-    type: type
+    type: type,
+    sound: sound
   };
   Notifier.notify(options);
 }
