@@ -1,6 +1,6 @@
 {
   "name": "webpack-processor-notifier",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "A plugin to notify of the success or failure of a webpack build. It allows to be passed as processor.",
   "main": "dist/index.js",
   "keywords": [
